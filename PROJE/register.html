@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üye Ol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #121212; 
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('p0.jpg'); 
+            background-size: cover;
+                       filter: blur(10px);
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .register-modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #06f;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #f00; 
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background-color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero"></div>
+
+    <div class="register-modal">
+        <h1 style="color: #f00;">ÜYE OL</h1>
+        <form id="registerForm">
+            <input type="text" name="fullname" placeholder="Ad Soyad" class="input-field" required>
+            <input type="email" name="email" placeholder="E-posta" class="input-field" required>
+            <input type="text" name="username" placeholder="Kullanıcı Adı" class="input-field" required>
+            <input type="password" name="password" placeholder="Şifre" class="input-field" required>
+            <br><br> <button type="submit" class="btn">Hesap Oluştur</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            alert("Hesabınız başarıyla oluşturuldu! Giriş sayfasına yönlendiriliyorsunuz.");
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

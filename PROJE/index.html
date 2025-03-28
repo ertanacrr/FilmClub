@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCLUB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 0;
+            height: 70px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color:rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 0;
+            top: 0;
+        width: 100%;
+        z-index: 1000; 
+        }
+        nav a {
+            color: whitesmoke;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+.film-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .film-card {
+            background: #222;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+        .film-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .film-card img {
+            width: 100px;
+            height:390px;
+            border-radius: 8px;;
+        }
+        .film-card h3 {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #ffd700;
+        }
+        .film-card p {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin: 10px 0;
+        }
+        .film-card .rating {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #fff;
+            font-weight: bold;
+        }
+        .film-card .rating-form {
+            margin-top: 10px;
+        }
+        .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-content {
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+}
+
+.contact-info {
+    position: absolute;
+    bottom: -28px;
+    right: -15px;
+    font-size: 17px; 
+    color: whitesmoke; 
+}
+.contact-info2 {
+    position: absolute;
+    bottom: -30px; 
+    left: -15 px;
+    font-size: 17px; 
+    color: whitesmoke; 
+}
+        .action-buttons {
+            margin-top: 10px;
+        }
+        .action-buttons button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .action-buttons button:hover {
+            background-color: #777;
+        }
+        .hero-container {
+  position: relative;
+  height: 100vh;
+  background-image: url("to1.jpg.jpg"); 
+  background-size: cover;
+  background-position: ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 10px;
+  
+  height: 80vh;
+}
+
+.content-wrapper {
+  max-width: 900px;
+}
+
+.main-heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.sub-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .sub-description {
+    font-size: 1rem;
+  }
+  nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+.new-releases {
+  text-align: center;
+  padding: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+.card {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 525PX;
+}
+
+.card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  
+  
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.card p {
+  font-size: 0.9em;
+  margin: 0 10px 10px;
+}
+
+.card button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.card button:hover {
+  background-color: #e64a19;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    font-size: px;
+    border: none;
+    border-radius: 50px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="1.jpg.JPG" height="80" weight="80" alt="Film 1"></a>
+            <a href="filmler.html">FİLMLER</a>
+            <a href="puanladıklarım.html">PUANLADIKLARIM</a>
+            <form action="#" method="get" class="search-form">
+              <input type="text" placeholder="" name="search">
+              <button type="submit">Ara</button>
+          </form>
+            <a href="top50.html">TOP 50</a>
+            <a href="giriş.html">GİRİŞ YAP</a>
+        </nav>
+    </header>   
+    <div class="film-container" id="filmContainer">
+        </div>  
+    </div>
+    <div class="hero-container">
+        <div class="content-wrapper">
+          <h1 class="main-heading" style="color:#ff3030;">Welcome to FİLMCLUB</h1>
+          <pp class="sub-description" style="color:rgb(255, 255, 255);">Favori filmlerini puanla ve listelerini oluştur.</p>
+          </div>
+        </div>
+        <div class="new-releases">
+        <h2 style="color: rgb(255, 81, 81);">YENİ ÇIKANLAR</h2>
+          <div  class="cards-container">
+              <div class="card">
+                <img src="avatar.jpg" alt="Avatar Film"  onclick="openFilmPage('a1')">
+                <h3>Avatar: Fire and Ash (2025)</h3>  
+                <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+                <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider1" oninput="updateRating(1)">
+                <p class="rating" id="rating1">Puan: 0</p>
+                <button onclick="saveRating(1); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+          
+          <div class="card">
+              <img src="w1.jpg" alt="Film 2"   onclick="openFilmPage('a2')">
+              <h3>Now You See Me 3 (2025)</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider2" oninput="updateRating(2)">
+              <p class="rating" id="rating2">Puan: 0</p>
+              <button onclick="saveRating(2); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+          </div>
+
+          <div class="card">
+            <img src="cabnw2.jpg" alt="Film 3"  onclick="openFilmPage('a3')">
+            <h3>Captain America: (2025)</h3>
+            <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+            <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider3" oninput="updateRating(3)">
+            <p class="rating" id="rating3">Puan: 0</p>
+            <button onclick="saveRating(3); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+        </div>
+            
+        <div class="card">
+          <img src="s1.jpg" alt="Film4"  onclick="openFilmPage('a4')">
+          <h3>Mission: Impossible-The Final(2025)</h3>
+          <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+          <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider4" oninput="updateRating(4)">
+          <p class="rating" id="rating4">Puan: 0</p>
+          <button onclick="saveRating(4); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+      </div>
+      <div class="card">
+        <img src="hw1.jpg" alt="Film 5"     onclick="openFilmPage('a5')">
+        <h3>How to Train Your Dragon (2025)</h3>
+        <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+        <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider5" oninput="updateRating(5)">
+        <p class="rating" id="rating5">Puan: 0</p>
+        <button onclick="saveRating(5); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+    </div>
+    <div class="card">
+      <img src="dayı2.jpg" alt="Film 6 "      onclick="openFilmPage('a6')">
+      <h3>Dayı: Bir Adamın Hikayesi 2 (2025)</h3>
+      <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+      <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider6" oninput="updateRating(6)">
+      <p class="rating" id="rating6">Puan: 0</p>
+      <button onclick="saveRating(6); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+  </div>
+  <div class="card">
+    <img src="b1.jpg" alt="Film 7"       onclick="openFilmPage('a7')">
+    <h3>Ballerina (2025)</h3>
+    <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+    <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider7" oninput="updateRating(7)">
+    <p class="rating" id="rating7">Puan: 0</p>
+    <button onclick="saveRating(7); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+<div class="card">
+  <img src="advit.jpg" alt="Film 8"     onclick="openFilmPage('a8')">
+  <h3>Ad Vitam (2025)</h3>
+  <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+  <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider8" oninput="updateRating(8)">
+  <p class="rating" id="rating8">Puan: 0</p>
+  <button onclick="saveRating(8); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+<div class="card">
+  <img src="br1.jpg" alt="Film 9"      onclick="openFilmPage('a9')">
+  <h3>The Bride (2025)</h3>
+  <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+  <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider9" oninput="updateRating(9)">
+  <p class="rating" id="rating9">Puan: 0</p>
+  <button onclick="saveRating(9); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+<div class="card">
+  <img src="r.jpg" alt="Film 10"             onclick="openFilmPage('a10')">
+  <h3>F1 (2025)</h3>
+  <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+  <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider10" oninput="updateRating(10)">
+  <p class="rating" id="rating10">Puan: 0</p>
+  <button onclick="saveRating(10); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+<div class="card">
+  <img src="h1.jpg" alt="Film 11"           onclick="openFilmPage('a11')">
+  <h3>Superman (2025)</h3>
+  <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+  <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider11" oninput="updateRating(11)">
+  <p class="rating" id="rating11">Puan: 0</p>
+  <button onclick="saveRating(11); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+<div class="card">
+  <img src="n1.jpg" alt="Film 12"            onclick="openFilmPage('a12')">
+  <h3>Nobody 2 (2025)</h3>
+  <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+  <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider12" oninput="updateRating(12)">
+  <p class="rating" id="rating12">Puan: 0</p>
+  <button onclick="saveRating(12); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+</div>
+
+        <div class="new-releases">
+          <h2 style="color: rgb(255, 0, 0);">POPÜLER FİLMLER</h2>
+          <div class="cards-container">
+            <div class="card">
+              <img src="d1.jpg" alt="Film 13"     onclick="openFilmPage('a13')">
+              <h3>Deadpool & Wolverine</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider13" oninput="updateRating(13)">
+              <p class="rating" id="rating13">Puan: 0</p>
+              <button onclick="saveRating(13); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="ve1.jpg" alt="Film 14"  onclick="openFilmPage('a14')"> 
+              <h3>Venom: The Last Dance</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+          <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider14" oninput="updateRating(14)">
+          <p class="rating" id="rating14">Puan: 0</p>
+          <button onclick="saveRating(14); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="PL.jpg" alt="Film 15"  onclick="openFilmPage('a15')"> 
+              <h3>Kingdom of the Planet of the Apes</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider15" oninput="updateRating(15)">
+              <p class="rating" id="rating15">Puan: 0</p>
+              <button onclick="saveRating(15); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="MAD.jpg" alt="Film 16"  onclick="openFilmPage('a16')">
+              <h3> Furiosa: A Mad Max Saga </h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider16" oninput="updateRating(16)">
+              <p class="rating" id="rating16">Puan: 0</p>
+              <button onclick="saveRating(16); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="ABU.jpg" alt="Film 17"   onclick="openFilmPage('a17')">
+              <h3>Aquaman and the Lost Kingdom</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider17" oninput="updateRating(17)">
+              <p class="rating" id="rating17">Puan: 0</p>
+              <button onclick="saveRating(17); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="GOD.jpg" alt="Film 18"    onclick="openFilmPage('a18')">
+              <h3>Godzilla x Kong: The New Empire</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider18" oninput="updateRating(18)">
+              <p class="rating" id="rating18">Puan: 0</p>
+              <button onclick="saveRating(18); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card"> 
+              <img src="DUNE.jpg" alt="Film 19"    onclick="openFilmPage('a19')">
+              <h3>Dune: Part Two</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider19" oninput="updateRating(19)">
+              <p class="rating" id="rating19">Puan: 0</p>
+              <button onclick="saveRating(19); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+            </div>
+            <div class="card">
+              <img src="JJOKER.jpg" alt="Film 20"  onclick="openFilmPage('a20')">
+              <h3>Joker: Folie à Deux</h3>
+              <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+              <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider20" oninput="updateRating(20)">
+              <p class="rating" id="rating20">Puan: 0</p>
+              <button onclick="saveRating(20); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+          </div>
+          <div class="card">
+            <img src="OP.jpg" alt="Film 21"      onclick="openFilmPage('a21')">
+            <h3>Oppenheimer</h3>
+            <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+            <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider21" oninput="updateRating(21)">
+            <p class="rating" id="rating21">Puan: 0</p>
+            <button onclick="saveRating(21); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+        </div>
+        <div class="card">
+          <img src="BARBİE2.jpg" alt="Film 22"      onclick="openFilmPage('a22')">
+          <h3>Barbie</h3>
+          <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+          <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider22" oninput="updateRating(22)">
+          <p class="rating" id="rating22">Puan: 0</p>
+          <button onclick="saveRating(22); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+      </div>
+      <div class="card">
+        <img src="gladyatör.jpg" alt="Film 23"        onclick="openFilmPage('a23')">
+        <h3>Gladiator 2</h3>
+        <p style="color: red;">BİLGİ İÇİN AFİŞE TIKLA</p>
+        <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider23" oninput="updateRating(23)">
+        <p class="rating" id="rating23">Puan: 0</p>
+        <button onclick="saveRating(23); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+    </div>
+    <div class="card">
+      <img src="inter2.jpg" alt="Film 24"             onclick="openFilmPage('a24')">
+      <h3>Interstellar </h3>
+      <p style="color: rgb(194, 71, 71);">BİLGİ İÇİN AFİŞE TIKLA</p>  
+      <input type="range" min="1" max="100" value="0" class="rating-slider" id="slider24" oninput="updateRating(24)">
+      <p class="rating" id="rating24">Puan: 0</p>
+      <button onclick="saveRating(24); alert('Puanınızı başarıyla kaydettiniz!');">Kaydet</button>
+  </div>
+        </div>
+        <div class="new-releases">
+          <h2 style="color: rgb(255, 50, 50);">TOP 5 YÖNETMENLER</h2>
+          <div class="cards-container">
+            <div class="card">
+              <img src="NOLAN.jpg " alt="Film 24" onclick="openFilmPage('y1')">
+              <h3>CHRİSTOPHER NOLAN </h3>
+              <p style="color: red;"><BR></BR>BİLGİ İÇİN AFİŞE TIKLA</p>
+            </div>
+            <div class="card">
+              <img src="kubrick.jpg" alt="Film 24" onclick="openFilmPage('y2')">
+              <h3>STANLEY <BR>KUBRİCK </h3>
+              <p style="color: red;"><BR></BR>BİLGİ İÇİN AFİŞE TIKLA</p>
+            </div>
+            <div class="card">
+              <img src="hitc.jpg" alt="Film 24" onclick="openFilmPage('y3')">
+              <h3>ALFRED <BR>HİTCOCK </h3>
+              <p style="color: red;"><BR></BR>BİLGİ İÇİN AFİŞE TIKLA</p>
+            </div>
+            <div class="card">
+              <img src="tarantino.jpg" alt="Film 24" onclick="openFilmPage('y4')">
+              <h3>QUENTİN <BR>TARANTİNO </h3>
+              <p style="color: red;"><BR></BR>BİLGİ İÇİN AFİŞE TIKLA</p>
+          </div>
+          <div class="card">
+            <img src="SCORSESE2.JPG" alt="Film 24" onclick="openFilmPage('y5')">
+            <h3>MARTİN <BR>SCORCESE</h3>
+            <p style="color: red;"><BR></BR>BİLGİ İÇİN AFİŞE TIKLA</p>
+        </div>
+        </div>
+        <footer class="footer">
+          <div class="footer-content">
+              <div class="footer-section about">
+              </div>   
+              </div>
+          </div>
+          <br><br>
+          <div class="footer-bottom">
+              <p>&copy; 2025 FİLMCLUB   HER HAKKI SAKLIDIR <br> </p>
+          </div>
+      </footer>  
+      <script>
+        function updateRating(cardNumber) {
+            const slider = document.getElementById(`slider${cardNumber}`);
+            const rating = document.getElementById(`rating${cardNumber}`);
+            rating.textContent = `Puan: ${slider.value}`;
+        }
+    
+        function saveRating(cardNumber) {
+            const slider = document.getElementById(`slider${cardNumber}`);
+            localStorage.setItem(`filmRating${cardNumber}`, slider.value);
+        }
+    
+        function loadRatings() {
+            const sliders = document.querySelectorAll('.rating-slider');
+            sliders.forEach((slider) => {
+                const cardNumber = slider.id.replace('slider', '');
+                const savedRating = localStorage.getItem(`filmRating${cardNumber}`);
+                if (savedRating) {
+                    slider.value = savedRating;
+                    document.getElementById(`rating${cardNumber}`).textContent = `Puan: ${savedRating}`;
+                } else {
+                    console.log(`filmRating${cardNumber} kaydı bulunamadı!`);
+                }
+            });
+        };
+        function openFilmPage(filmId) {
+    window.location.href = `${filmId}.html`;
+}
+    </script>
+
+    <div class="footer-content">
+      <div class="contact-info">
+         <p style="color: #ff3030;">İletişim:ertanacar900@gmail.com</p> 
+      </div>
+  </div>
+  
+  <div class="footer-content">
+    <div class="contact-info2">
+       <p style="color: #ff3030;">Tüm umudunuzu kaybetmek özgürlüktür. <BR>
+        Bırakın devrilelim. 
+        Her şey düşeceği yere düşsün...</p> 
+    </div>
+</div>
+  
+
+  
+    
+         
+  
+         

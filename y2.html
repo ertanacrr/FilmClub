@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanley Kubrick</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000; 
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+            font-size: 14px; 
+        }
+
+        header {
+            background-color: #000000; 
+            color: #ff0000; 
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        header a {
+            margin-right: 15px;
+        }
+
+        h1 {
+            font-size: 32px; 
+            color: #ff0000; 
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .film-content {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #222; 
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .film-content .image-section {
+            width: 45%;
+            height: 250px; 
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .film-content .image-section img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .film-description {
+            width: 55%;
+            color: rgb(255, 86, 86);
+        }
+
+        .film-description h2 {
+            font-size: 22px; 
+            margin-bottom: 15px;
+            color: #ff0000;
+        }
+
+        .film-description p {
+            font-size: 16px; 
+            margin-bottom: 10px;
+            color: white;
+        }
+
+         footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #000000; 
+            color: #f4ebeb;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px; 
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .director-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .director-section img {
+            width: 100px; 
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .director-info {
+            max-width: 550px;
+        }
+
+        .film-list {
+            margin-top: 20px;
+        }
+
+        .film-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .film-list li {
+            font-size: 16px; 
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .film-list li strong {
+            color: #ff0000;
+        }
+
+        .imdb-link {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        .imdb-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="1.jpg.JPG" height="70" width="120" alt="Film Logo"></a>
+        <h1>Stanley Kubrick</h1>
+    </header>
+
+    <div class="film-content">
+        <div class="image-section">
+            <img src="st2.jpg" alt="Stanley Kubrick">
+        </div>
+        <div class="film-description">
+            <div class="director-section">
+                <div class="director-info">
+                    <h2>Stanley Kubrick</h2>
+                    <p>Stanley Kubrick, sinema dünyasının en etkili yönetmenlerinden biridir. Teknik yenilikler, estetik tasarımlar ve derin anlatım tarzıyla tanınır. "2001: A Space Odyssey", "The Shining" ve "A Clockwork Orange" gibi başyapıtlarıyla sinema tarihine damga vurmuştur.</p>
+                    <p>Kubrick, filmlerinde sıklıkla insan doğası, teknoloji, ahlak ve toplumsal düzen gibi temaları işler. Detaylara verdiği önem ve yaratıcı yaklaşımı, onu sinema tarihinde özel bir yere yerleştirmiştir.</p>
+                </div>
+            </div>
+
+            <h2>Film Hakkında</h2>
+            <div class="film-list">
+                <h3>Stanley Kubrick'in Öne Çıkan 5 Filmi:</h3>
+                <ul>
+                    <li><strong>2001: A Space Odyssey (1968)</strong> - IMDb Puanı: <a href="https://www.imdb.com/title/tt0062622/" class="imdb-link" target="_blank">8.3</a></li>
+                    <li><strong>The Shining (1980)</strong> - IMDb Puanı: <a href="https://www.imdb.com/title/tt0081505/" class="imdb-link" target="_blank">8.4</a></li>
+                    <li><strong>A Clockwork Orange (1971)</strong> - IMDb Puanı: <a href="https://www.imdb.com/title/tt0066921/" class="imdb-link" target="_blank">8.3</a></li>
+                    <li><strong>Full Metal Jacket (1987)</strong> - IMDb Puanı: <a href="https://www.imdb.com/title/tt0093058/" class="imdb-link" target="_blank">8.3</a></li>
+                    <li><strong>Barry Lyndon (1975)</strong> - IMDb Puanı: <a href="https://www.imdb.com/title/tt0072684/" class="imdb-link" target="_blank">8.1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="back-btn">Ana Sayfaya Dön</a>
+        <p>&copy; 2025 FİLMCLUB - Tüm Hakları Saklıdır</p>
+    </footer>
+
+</body>
+</html>

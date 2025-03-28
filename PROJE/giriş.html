@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Giriş Yap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #121212; 
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('p0.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .login-modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            background-color: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #06f;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #f00; 
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background-color: #c00;
+        }
+
+        .register-link {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff; 
+            color: #000; 
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .register-link:hover {
+            background-color: #f0f0f0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="hero"></div>
+
+    <div class="login-modal">
+        <h1 style="color: #f00;">WELCOME TO FİLMCLUB</h1>
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" class="input-field" required>
+            <input type="password" name="password" placeholder="Şifre" class="input-field" required>
+            <button type="submit" class="btn">Giriş Yap</button>
+        </form>
+        <a href="register.html" class="register-link">Üye Ol</a>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            window.location.href = 'index.html'; 
+        });
+    </script>
+</body>
+</html>

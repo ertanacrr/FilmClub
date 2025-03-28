@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCLUB TOP 50</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px; 
+}
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0.5rem 0;
+    position: relative; 
+    z-index: 1000;
+}
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 5px;
+    font-size: px;
+    border: none;
+    border-radius: 50px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #45a049;
+}
+
+        .film-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .film-card {
+            background-color: #333;
+            border-radius: 8px;
+            width: 300px; 
+            height: 500-0px; 
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .film-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .film-card img {
+            width: 100%;
+            height: 400px; 
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .film-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .film-card p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .film-card .rating {
+            font-size: 18px;
+            color: #FFD700; 
+            margin: 10px 0;
+        }
+
+        .film-card .rating span {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-content {
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+}
+
+.contact-info {
+    position: absolute;
+    bottom: -50px;
+    right: 600px;
+    font-size: 17px; 
+    color: whitesmoke; 
+}
+
+        .edit-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .edit-btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html"><img src="1.jpg.JPG" height="80" weight="80" alt="Film 1"></a>
+            <a href="filmler.html">FİLMLER</a>
+            <a href="puanladıklarım.html">PUANLADIKLARIM</a>
+            <form action="#" method="get" class="search-form">
+                <input type="text" placeholder="" name="search">
+                <button type="submit">Ara</button>
+            </form>
+            <a href="top50.html">TOP 50</a>
+            <a href="giriş.html">GİRİŞ YAP</a>
+        </nav>
+    </header>
+
+    <div class="film-container" id="filmContainer">
+    </div>
+
+    <script>
+        const filmList = [
+        { title: "The Shawshank Redemption", image: "esaretbed.jpg", trailer: "https://www.youtube.com/embed/6hB3S9bIaco", description: "Andy Dufresne, haksız yere cinayetten hüküm giymiş bir bankerdir. Shawshank cezaevine yerleştikten sonra, burada yıllarca süren dostluklar kurarak, özgürlüğünü kazanmak için planlar yapar." },
+    { title: "The Godfather", image: "baba.jpg", trailer: "https://www.youtube.com/embed/76h6LCVk_Gk", description: "Vito Corleone, New York'taki en güçlü mafya ailesinin başıdır. Oğlu Michael ise, mafya dünyasından uzak durmak istese de, ailesinin işlerine katılmak zorunda kalır." },
+    { title: "The Dark Knight", image: "batman.jpg", trailer: "https://www.youtube.com/embed/EXeTwQWrcwY", description: "Batman, Gotham şehrini kurtarmak için, Joker adında kaotik bir suçlu ile mücadele eder. Joker, şehri korku ve kaos içinde tutmaya çalışırken, Batman'in moral değerlerini sorgulatır." },
+    { title: "Pulp Fiction", image: "pulp.jpg", trailer: "https://www.youtube.com/embed/s7EdQ4FqbhY", description: "İki mafya tetikçisi, bir boksör, bir gangsterin karısı ve iki soyguncunun hikayeleri birbirine bağlı olarak gelişir. Zaman ve mekan açısından sırasız bir şekilde anlatılan olaylar, şiddet ve mizahı harmanlar." },
+    { title: "Forrest Gump", image: "forrest.jpg", trailer: "https://www.youtube.com/embed/bLvqoHBptjg", description: "Forrest Gump, zeka seviyesi düşük ancak saf ve içten bir adamdır. Yaşadığı birçok önemli tarihi olayla tesadüfen tanışırken, sevdiği kadını bulmaya çalışır." },
+    { title: "Inception", image: "inception.jpg", trailer: "https://www.youtube.com/embed/YoHD9XEInc0", description: "Dom Cobb, insanların rüyalarına girip bilinçaltından bilgi çalan bir hırsızdır. Ancak bir işvereni, ona ters bir görev verir: Bir fikri yerleştirme (inception)." },
+    { title: "Fight Club", image: "fight.jpg", trailer: "https://www.youtube.com/embed/qtRKdVHc-cE", description: "Bir ofis çalışanı, sıkıcı bir hayatla mücadele ederken, Tyler Durden adında karizmatik bir adamla tanışır. Birlikte, dövüş kulübü kurarak erkekler arasında şiddetli bir rekabet başlatırlar." },
+    { title: "The Matrix", image: "matrix.jpg", trailer: "https://www.youtube.com/embed/m8e-FF8MsqU", description: "Neo, bir bilgisayar programcısı olarak monoton bir hayat sürerken, gerçekliği sorgulamaya başlar. Neo, Matrix adlı sanal bir dünya tarafından manipüle edilmektedir." },
+    { title: "The Lord of the Rings: The Return of the King", image: "lord.jpg", trailer: "https://www.youtube.com/embed/r5X-hFf6Bwo", description: "Gandalf ve Aragorn, Sauron'un ordusuna karşı Dünya İnsanlarını yönetirken, Frodo ve Sam, Tek Yüzüğü yok etmek için Mordor'a doğru ilerler." },
+    { title: "Star Wars: Episode V - The Empire Strikes Back", image: "star5.jpg", trailer: "https://www.youtube.com/embed/JNwNXF9Y6kY", description: "İmparatorluk, Hoth'taki üsse saldırırken, Luke Skywalker Jedi eğitimi almak için Yoda'ya gider. Aynı zamanda, Han Solo ve arkadaşları, Luke'u bulmaya çalışırlar." },
+    { title: "Schindler's List", image: "schi.jpg", trailer: "https://www.youtube.com/embed/gG22XK6nL2o", description: "Oskar Schindler, Nazi Almanyası'nda Polonya'da bir fabrikanın sahibi olarak, Yahudi işçilerini kurtarmak için çaba gösterir." },
+    { title: "The Lion King", image: "lion.jpg", trailer: "https://www.youtube.com/embed/4sjJd0vZoJQ", description: "Simba, ailesini kaybettikten sonra, babasının intikamını almak için geri döner ve halkını özgürlüğe kavuşturur." },
+    { title: "Back to the Future", image: "bctf.jpg", trailer: "https://www.youtube.com/embed/qvsgGtivCgs", description: "Marty McFly, zaman yolculuğu yapabilen bir DeLorean ile geçmişe gider ve geleceği değiştirmeye çalışır." },
+    { title: "Interstellar", image: "inter2.jpg", trailer: "https://www.youtube.com/embed/zSWdZVtXT7E", description: "Bir grup astronot, insanlığı kurtarmak için, evrenin derinliklerine doğru bir yolculuğa çıkar." },
+    { title: "Gladiator", image: "gladiö.jpg", trailer: "https://www.youtube.com/embed/owK1qxDselE", description: "Maximus, Roma İmparatoru'nun öldürülmesinin ardından köle olarak satılır ve arenada intikam almak için savaşır." },
+    { title: "The Prestige", image: "prestige.jpg", trailer: "https://www.youtube.com/embed/Ov3gJkR8t5Q", description: "İki sihirbaz, birbirlerini alt etmek için gizli numaralar peşindedirler, ancak her biri diğerini bir adım önde geçmeye çalışır." },
+    { title: "The Departed", image: "departed.jpg", trailer: "https://www.youtube.com/embed/auYbKpF8WqY", description: "Boston'da bir polis memuru, mafya ile bağlantıları olan bir çete liderine karşı gizli bir görev üstlenir." },
+    { title: "Citizen Kane", image: "kane.jpg", trailer: "https://www.youtube.com/embed/H2I0w_IzDME", description: "Zengin bir gazete sahibi olan Charles Foster Kane'in hayatı ve ölümü, gazetecilerin yaptığı araştırmalarla anlatılır." },
+    { title: "Memento", image: "memento.jpg", trailer: "https://www.youtube.com/embed/0vS0E9bBSL0", description: "Leonard Shelby, kısa süreli hafıza kaybı yaşayan bir adamdır. Eşinin katilini bulmaya çalışırken, hatırlayamayacağı bir şekilde ipuçlarını kaydeder." },
+    { title: "The Green Mile", image: "green.jpg", trailer: "https://www.youtube.com/embed/KMn4uLe0c9A", description: "Paul Edgecomb, ölüm cezası hükümlüsü John Coffey'nin sıradışı yetenekleriyle tanışır ve hayatını değiştirecek bir karar almak zorunda kalır." },
+    { title: "Se7en", image: "seven.jpg", trailer: "https://www.youtube.com/embed/lIuC7zOdoEo", description: "İki dedektif, şiddetli bir seri katili yakalamaya çalışırken, katilin işlediği yedi ölümcül günahı temalarına dayalı cinayetler işlediğini keşfederler." },
+    { title: "American History X", image:"x.jpg", trailer: "https://www.youtube.com/embed/R2nqpkI9w3M", description: "Derek Vineyard, beyaz ırkçı bir grup lideridir. Hapisten çıktıktan sonra, kardeşinin aynı yoldan gitmemesi için mücadele eder." },
+    { title: "The Revenant", image: "reven.jpg", trailer: "https://www.youtube.com/embed/LoebZZ8K5N0", description: "Hugh Glass, vahşi doğada hayatta kalmaya çalışırken, ona ihanet edenlerin peşinden gitmek ve intikam almak için savaşıyor." },
+    { title: "The Truman Show", image: "truman.jpg", trailer: "https://www.youtube.com/embed/4ue4VvTFzG0", description: "Truman Burbank, hiç farkına varmadığı bir şekilde, tüm hayatı televizyonda yayımlanan bir reality şovun parçasıdır." },
+    { title: "A Beautiful Mind", image: "mind.jpg", trailer: "https://www.youtube.com/embed/aS2m09z6VrI", description: "Matematik dehası John Nash'in hayatı ve şizofreniyle mücadelesi, başarıları ve zorlukları anlatılır." },
+    { title: "Whiplash", image: "whip.jpg", trailer: "https://www.youtube.com/embed/7d_jQycdQGo", description: "Genç bir davulcu, müzik okulunda, sert bir öğretmen tarafından mükemmeliyetçi bir şekilde eğitilir." },
+    { title: "Parasite", image: "parasite.jpg", trailer: "https://www.youtube.com/embed/5xH0HfJHsaY", description: "Fakir bir aile, zengin bir ailenin hayatına gizlice sızarak onların güvenini kazanır, ancak olaylar kontrolden çıkar." },
+    { title: "The Social Network", image: "social.jpg", trailer: "https://www.youtube.com/embed/lB95KLmpLR4", description: "Facebook'un kurucusu Mark Zuckerberg'in yükselişi ve arkadaşlarının ihanetleri, gizlilik ve para arasındaki çatışmayı anlatır." },
+    { title: "12 Angry Men", image: "angry.jpg", trailer: "https://www.youtube.com/embed/_13J_9CbF4E", description: "Bir jüri, bir gencin suçluluğu ya da suçsuzluğu konusunda karar verirken, üyeler arasında çıkan tartışmalar ve gerilimleri gösterir." },
+    { title: "The Intouchables", image: "into.jpg", trailer: "https://www.youtube.com/embed/34WIbmXkP6w", description: "Zengin bir felçli adam ile onun bakıcısı olan yoksul bir adamın birbirlerinden farklı dünyalarda yaşamalarına rağmen kurdukları dostluğu anlatır." },
+    { title: "City of God", image: "city.jpg", trailer: "https://www.youtube.com/embed/50kQ_jkz1Rk", description: "Brezilya'nın en tehlikeli gecekondu mahallesindeki gençlerin, suç ve hayatta kalma mücadelesi üzerinden gelişen olaylar." },
+    { title: "Goodfellas", image: "goodfellas.jpg", trailer: "https://www.youtube.com/embed/qo5jJpHtI5g", description: "Henry Hill, mafyanın içinde yükseldikçe, suç dünyasında hayatta kalmaya çalışırken karşılaştığı tehlikelerle yüzleşir." },
+    { title: "Blade Runner", image: "blade.jpg", trailer: "https://www.youtube.com/embed/rkF6v1tPdyA", description: "Gelecekteki bir dünyada, robot benzeri varlıkların insanlar gibi yaşadığı ve bu varlıkları avlayan bir dedektifin hikayesini anlatır." },
+    { title: "The Big Lebowski", image: "big.jpg", trailer: "https://www.youtube.com/embed/cd-go0oNFw8", description: "Jeffrey 'The Dude' Lebowski, yanlışlıkla zengin bir adamla karıştırılınca, macera dolu bir olaylar zincirinin içine çekilir." },
+    { title: "The Terminator", image: "terminatör.jpg", trailer: "https://www.youtube.com/embed/k64P4l2W6vE", description: "Bir robot, gelecekteki insan direnişini yok etmek amacıyla geçmişe gönderilir. Ancak onun görevi, bir kadını öldürmek ve insanlığın geleceğini değiştirmektir." },
+    { title: "Shutter Island", image: "zindan.jpg", trailer: "https://www.youtube.com/embed/HhvztbXnEp0", description: "Bir dedektif, bir akıl hastanesinde kaybolan bir hastayı araştırmak için adaya gelir. Ancak, zamanla buranın korkutucu sırlarını keşfeder." },
+    { title: "A Clockwork Orange", image: "orange.jpg", trailer: "https://www.youtube.com/embed/kQm3HqQ0cL4", description: "Bir gencin şiddet ve suç dolu hayatını, toplumun yeniden biçimlendirme çabaları ile karşılaştırarak işleyen bir distopya." },
+    { title: "The Silence of the Lambs", image: "silence.jpg", trailer: "https://www.youtube.com/embed/29TyCqHj2ys", description: "Bir FBI ajanı, tecrübeli bir seri katil olan Hannibal Lecter ile işbirliği yaparak başka bir katilin peşine düşer." },
+    { title: "The Wolf of Wall Street", image: "wolf.jpg", trailer: "https://www.youtube.com/embed/iszwuX1AK6A", description: "Jordan Belfort'un Wall Street'teki yükselişi ve sonrasındaki çöküşünü, hırs, yolsuzluk ve aşırılıklarla anlatır." },
+    { title: "The Shining", image: "shining.jpg", trailer: "https://www.youtube.com/embed/5Cb3ik6zP2I", description: "Bir otel bakıcısı ve ailesi, kış boyunca izole bir şekilde yaşarken, otelin karanlık geçmişi onları psikolojik bir çözülmeye sürükler." },
+    { title: "No Country for Old Men", image: "country.jpg", trailer: "https://www.youtube.com/embed/38A__WT3-o0", description: "Bir çantada büyük bir para bulan bir adam, bir katil tarafından peşine düşülür. Tüm bunlar, bir kasabada yaşanan şiddetli çatışmaları konu alır." },
+    { title: "The Grand Budapest Hotel", image: "grand.jpg", trailer: "https://www.youtube.com/embed/1Fg5iWmQjwk", description: "Bir otel yöneticisi ve onun çırakının, değerli bir tablonun çalınması olayı etrafında gelişen komik ve dramatik hikayesi." },
+    { title: "Léon: The Professional", image: "leon.jpg", trailer: "https://www.youtube.com/embed/dE2mGZ5M6w8", description: "Bir suikastçı, ailesi öldürülen genç bir kızla dostluk kurarak ona hayatı ve intikamı öğretir." },
+    { title: "The Usual Suspects", image: "usual.jpg", trailer: "https://www.youtube.com/embed/BnJltVQDA98", description: "Bir suç çetesi üyelerinin, birbirlerini tanıyamadıkları bir suçun ardındaki gizemi çözmeye çalışmaları ve büyük bir sürprizle karşılaşmaları." },
+    { title: "Trainspotting", image: "transpotting.jpg", trailer: "https://www.youtube.com/embed/oxaVt3c9Wmc", description: "Bir grup genç, uyuşturucu bağımlılığı ile mücadele ederken, birbirlerinin yaşamlarını ve seçimlerini sorgularlar." },
+    { title: "The Curious Case of Benjamin Button", image: "benjamin.jpg", trailer: "https://www.youtube.com/embed/6veqD3UQJts", description: "Benjamin Button, yaşlandıkça gençleşen bir adamın hayatını ve buna karşı verdiği mücadeleyi konu alır." },
+    { title: "Requiem for a Dream", image: "rqfad.jpg", trailer: "https://www.youtube.com/embed/h6J1MtdGJjE", description: "Uyuşturucu bağımlılığının yaşamları nasıl yıkıcı bir şekilde değiştirdiğini anlatan karanlık bir dram." },
+    { title: "Her", image: "her.jpg", trailer: "https://www.youtube.com/embed/6i2AboBjqAw", description: "Bir adam, yapay zekâya sahip bir işletim sistemi ile romantik bir ilişki kurar. Teknolojinin insan duyguları üzerindeki etkisini keşfeder." },
+            
+        ];
+
+        const filmContainer = document.getElementById('filmContainer');
+        function getRandomRating() {
+    return Math.floor(Math.random() * 51) + 50; 
+}
+
+
+        filmList.forEach(film => {
+            const filmCard = document.createElement('div');
+            filmCard.classList.add('film-card');
+            filmCard.onclick = () => openModal(film);
+
+            const img = document.createElement('img');
+            img.src = film.image;
+            filmCard.appendChild(img);
+
+            const title = document.createElement('h3');
+            title.textContent = film.title;
+            filmCard.appendChild(title);
+
+            const description = document.createElement('p');
+            description.textContent = film.description;
+            filmCard.appendChild(description);
+
+            const rating = document.createElement('div');
+            rating.classList.add('rating');
+            rating.innerHTML = `Puan: <span id="rating-${film.title}">${getRandomRating()}</span>`;
+            filmCard.appendChild(rating);
+
+            const editBtn = document.createElement('button');
+            editBtn.classList.add('edit-btn');
+            editBtn.textContent = 'Düzenle';
+            editBtn.onclick = () => editRating(film.title);
+            filmCard.appendChild(editBtn);
+
+            filmContainer.appendChild(filmCard);
+        });
+
+        function editRating(filmTitle) {
+            const ratingElement = document.getElementById(`rating-${filmTitle}`);
+            const newRating = prompt("Yeni Puanı Girin (1-100):");
+            if (newRating >= 1 && newRating <= 100) {
+                ratingElement.textContent = newRating;
+            } else {
+                alert("Geçersiz puan! Lütfen 1 ile 100 arasında bir değer girin.");
+            }
+        }
+
+        function openModal(film) {
+            alert("Film detayları görüntüleniyor: " + film.title);
+        }
+    </script>
+
+</body>
+</html>
+
+<div class="footer-bottom">
+<div class="footer-content">
+      <div class="contact-info">
+         <p style="color: #ffffff;">2025 FİLMCLUB HER HAKKI SAKLIDIR</p> 
+      </div>
+  </div>
+  
+  
